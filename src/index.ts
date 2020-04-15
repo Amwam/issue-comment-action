@@ -1,3 +1,4 @@
+import { getIssueComments } from "./getIssueComments";
 import * as core from "@actions/core";
 import { getIssueContent } from "./getIssueContent";
 import { checkKeyword } from "./checkKeyword";
@@ -16,8 +17,9 @@ async function run() {
 
     const token = core.getInput("github-token");
     const content = await getIssueContent(token);
+    const comments = await getIssueComments(token);
 
-    const hasKeyword = checkKeyword(keywords, content);
+    const hasKeyword = checkKeyword(keywords, { ...content, comments });
     if (!hasKeyword) {
       console.log("Keyword not included in this issue");
       return;
@@ -35,14 +37,14 @@ async function run() {
       const labels: string[] = JSON.parse(labelsInput);
       console.log(labels);
       setIssueLabel(token, labels);
-      core.setOutput("labeled", true.toString())
+      core.setOutput("labeled", true.toString());
     }
 
     if (assigneesInput) {
       const assignees: string[] = JSON.parse(assigneesInput);
       console.log(assignees);
       setIssueAssignee(token, assignees);
-      core.setOutput("assigned", true.toString())
+      core.setOutput("assigned", true.toString());
     }
   } catch (error) {
     core.setFailed(error.message);
