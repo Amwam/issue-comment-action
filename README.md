@@ -48,6 +48,25 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
 
+Automatically set `help wanted` label when Issue comment contains `help` or `wanted`
+
+```yaml
+name: "Set Issue Label"
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Naturalclar/issue-action@v1.0.0
+        with:
+          keywords: '["help", "wanted"]'
+          labels: '["help wanted"]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+```
+
 # Upgrading this package
 
 When uploading github actions, `node_modules` and `lib` directories need to be commited.
