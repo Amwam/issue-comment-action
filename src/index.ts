@@ -1,11 +1,19 @@
-import { getIssueComments } from "./getIssueComments";
 import * as core from "@actions/core";
-import { getIssueContent } from "./getIssueContent";
 import { checkKeyword } from "./checkKeyword";
 import { setIssueLabel } from "./setIssueLabel";
 import { setIssueAssignee } from "./setIssueAssignee";
+import github from "@actions/github";
 
 async function run() {
+  const comment = github.context.payload.comment;
+
+  if (!comment) {
+    core.setFailed("Action can only be run on comments");
+    return;
+  }
+
+  console.log(`comment': ${comment}`);
+
   try {
     core.setOutput("labeled", false.toString());
     core.setOutput("assigned", false.toString());
@@ -16,12 +24,10 @@ async function run() {
     console.log(`keywords: ${keywords}`);
 
     const token = core.getInput("github-token");
-    const content = await getIssueContent(token);
-    const comments = await getIssueComments(token);
 
-    const hasKeyword = checkKeyword(keywords, { ...content, comments });
+    const hasKeyword = checkKeyword(keywords, comment.body);
     if (!hasKeyword) {
-      console.log("Keyword not included in this issue");
+      console.log("Keyword not included in this issue comment");
       return;
     }
 

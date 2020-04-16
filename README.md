@@ -1,8 +1,6 @@
-[![TestBuild][generaltest]](https://github.com/Naturalclar/issue-action) [![Assign][assigntest]](https://github.com/Naturalclar/issue-action) [![Label][labeltest]](https://github.com/Naturalclar/issue-action)
+# Issue Comment Action
 
-# Issue Action
-
-Github action for automatically adding label or setting assignee when a new Issue is opened.
+Github action for automatically adding label or setting assignee when a new comment is added to an Issue or Pull Request.
 
 ## Usage
 
@@ -13,8 +11,8 @@ Automatically assign `@username` when Issue title or body contains `test`
 ```yaml
 name: "Set Assignee"
 on:
-  issues:
-    types: [opened]
+  issues_comment:
+    types: [created]]
 
 jobs:
   test:
@@ -34,26 +32,7 @@ Automatically set `help wanted` label when Issue title or body contains `help` o
 ```yaml
 name: "Set Issue Label"
 on:
-  issues:
-    types: [opened]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: Naturalclar/issue-action@v1.0.0
-        with:
-          keywords: '["help", "wanted"]'
-          labels: '["help wanted"]'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-```
-
-Automatically set `help wanted` label when Issue comment contains `help` or `wanted`
-
-```yaml
-name: "Set Issue Label"
-on:
-  issue_comment:
+  issues_comment:
     types: [created]
 
 jobs:
@@ -91,7 +70,3 @@ $ git add node_modules lib
 $ git commit -a -m "release"
 $ git push origin release/vX.X.X
 ```
-
-[generaltest]: https://github.com/Naturalclar/issue-action/workflows/General%20Test/badge.svg
-[assigntest]: https://github.com/Naturalclar/issue-action/workflows/Test%20Issue%20Assign/badge.svg
-[labeltest]: https://github.com/Naturalclar/issue-action/workflows/Test%20Issue%20Label/badge.svg

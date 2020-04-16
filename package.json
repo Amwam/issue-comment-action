@@ -1,19 +1,19 @@
 {
-  "name": "issue-action",
-  "version": "0.0.3",
-  "description": "Github action for github issues",
+  "name": "issue-comment-action",
+  "version": "1.1.0",
+  "description": "Github action for github issue comments",
   "keywords": [
     "Actions",
     "GitHub",
     "JavaScript"
   ],
-  "homepage": "https://github.com/Naturalclar/issue-action#readme",
+  "homepage": "https://github.com/Amwam/issue-comment-action#readme",
   "bugs": {
-    "url": "https://github.com/Naturalclar/issue-action/issues"
+    "url": "https://github.com/Amwam/issue-coment-action/issues"
   },
-  "repository": "https://github.com/Naturalclar/issue-action.git",
+  "repository": "https://github.com/Amwam/issue-comment-action.git",
   "license": "MIT",
-  "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
+  "author": "Amit Shah <amit@amwam.me>",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
