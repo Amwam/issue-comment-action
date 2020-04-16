@@ -2,7 +2,7 @@ import * as core from "@actions/core";
 import { checkKeyword } from "./checkKeyword";
 import { setIssueLabel } from "./setIssueLabel";
 import { setIssueAssignee } from "./setIssueAssignee";
-import github from "@actions/github";
+import * as github from "@actions/github";
 
 async function run() {
   const comment = github.context.payload.comment;
