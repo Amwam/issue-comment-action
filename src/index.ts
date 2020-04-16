@@ -12,7 +12,7 @@ async function run() {
     return;
   }
 
-  console.log(`comment': ${comment}`);
+  console.log(`comment': ${comment.body}`);
 
   try {
     core.setOutput("labeled", false.toString());
