@@ -1,3 +1,4 @@
+import { addCommentReaction } from "./addCommentReaction";
 import * as core from "@actions/core";
 import { checkKeyword } from "./checkKeyword";
 import { setIssueLabel } from "./setIssueLabel";
@@ -30,6 +31,8 @@ async function run() {
       console.log("Keyword not included in this issue comment");
       return;
     }
+
+    addCommentReaction(token, comment.id);
 
     const labelsInput: string = core.getInput("labels");
     const assigneesInput: string = core.getInput("assignees");
