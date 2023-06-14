@@ -22,7 +22,7 @@ outputs:
   assigned:
     description: "\"true\" if assigned otherwise \"false\""
 runs:
-  using: "node12"
+  using: "node16"
   main: "lib/index.js"
 branding:
   icon: alert-circle
