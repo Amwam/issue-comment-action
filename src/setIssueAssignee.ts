@@ -2,7 +2,7 @@ import * as github from "@actions/github";
 import { getRepo, getIssueNumber } from "./github";
 
 export const setIssueAssignee = async (token: string, assignees: string[]) => {
-  const octokit = new github.GitHub(token);
+  const octokit = github.getOctokit(token);
 
   const issue_number = getIssueNumber();
 
@@ -10,7 +10,7 @@ export const setIssueAssignee = async (token: string, assignees: string[]) => {
     throw new Error("No Issue Provided");
   }
 
-  await octokit.issues.addAssignees({
+  await octokit.rest.issues.addAssignees({
     ...getRepo(),
     issue_number,
     assignees

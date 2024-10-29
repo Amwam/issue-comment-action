@@ -1,5 +1,5 @@
 import { addCommentReaction } from "./addCommentReaction";
-import * as core from "@actions/core";
+import  core from "@actions/core";
 import { checkKeyword } from "./checkKeyword";
 import { setIssueLabel } from "./setIssueLabel";
 import { setIssueAssignee } from "./setIssueAssignee";
@@ -56,7 +56,7 @@ async function run() {
       core.setOutput("assigned", true.toString());
     }
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(String(error));
   }
 }
 
