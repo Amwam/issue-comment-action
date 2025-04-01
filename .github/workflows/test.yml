@@ -1,11 +1,24 @@
-name: "General Test"
+name: "Tests"
 on: [push, pull_request]
 
 jobs:
   test:
+    name: CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: npm install
       - run: npm run build
       - run: npm run test
+  automerge:
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3
+        with:
+          pr-number: ${{ github.event.inputs.pr-number }}
