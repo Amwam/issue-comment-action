@@ -18,11 +18,11 @@ outputs:
   body:
     description: "Body of Issue"
   labeled:
-    description: "\"true\" if labeled otherwise \"false\""
+    description: '"true" if labeled otherwise "false"'
   assigned:
-    description: "\"true\" if assigned otherwise \"false\""
+    description: '"true" if assigned otherwise "false"'
 runs:
-  using: "node16"
+  using: "node20"
   main: "lib/index.js"
 branding:
   icon: alert-circle
