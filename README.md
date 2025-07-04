@@ -11,14 +11,14 @@ Automatically assign `@username` when Issue title or body contains `test`
 ```yaml
 name: "Set Assignee"
 on:
-  issues_comment:
+  issue_comment:
     types: [created]]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action@v1.4.0
+      - uses: Amwam/issue-comment-action@v1.5.0
         with:
           keywords: '["test"]'
           assignees: '["username"]'
@@ -32,14 +32,14 @@ Automatically set `help wanted` label when Issue title or body contains `help` o
 ```yaml
 name: "Set Issue Label"
 on:
-  issues_comment:
+  issue_comment:
     types: [created]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action@v1.4.0
+      - uses: Amwam/issue-comment-action@v1.5.0
         with:
           keywords: '["help", "wanted"]'
           labels: '["help wanted"]'
