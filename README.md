@@ -18,7 +18,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action@v1.3.1
+      - uses: Amwam/issue-comment-action@v1.4.0
         with:
           keywords: '["test"]'
           assignees: '["username"]'
@@ -39,7 +39,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action@v1.3.1
+      - uses: Amwam/issue-comment-action@v1.4.0
         with:
           keywords: '["help", "wanted"]'
           labels: '["help wanted"]'
