@@ -1,6 +1,4 @@
 # comment this out distribution branches
-node_modules/
-lib
 
 # Editors
 .vscode
@@ -65,4 +63,3 @@ typings/
 
 # next.js build output
 .next
-
