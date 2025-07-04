@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action
+      - uses: Amwam/issue-comment-action@v1.3.1
         with:
           keywords: '["/test"]'
           labels: '["test"]'
