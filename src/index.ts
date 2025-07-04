@@ -1,5 +1,5 @@
 import { addCommentReaction } from "./addCommentReaction";
-import  core from "@actions/core";
+import * as core from "@actions/core";
 import { checkKeyword } from "./checkKeyword";
 import { setIssueLabel } from "./setIssueLabel";
 import { setIssueAssignee } from "./setIssueAssignee";
