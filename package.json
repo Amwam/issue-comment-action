@@ -28,6 +28,6 @@
     "@types/node": "^24.0.13",
     "jest": "^30.0.4",
     "ts-jest": "^29.4.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
